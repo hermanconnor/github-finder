@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router';
-import styles from './Layout.module.css';
+import styles from '@/Layout.module.css';
+import Navbar from '@/components/Navbar';
 
 const Layout = () => {
   return (
     <div className={styles.appLayout}>
-      {/* TODO: NAVBAR */}
+      <Navbar />
 
       <main className={styles.mainContent}>
         <Outlet />
