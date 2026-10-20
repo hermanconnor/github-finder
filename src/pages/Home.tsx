@@ -1,8 +1,12 @@
+import SearchBar from '@/components/SearchBar';
+import UsersList from '@/components/UsersList';
+
 const Home = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <SearchBar />
+      <UsersList />
+    </>
   );
 };
 

@@ -1,0 +1,136 @@
+.userCard {
+  background-color: #ffffff;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  height: 100%;
+}
+
+.userCard:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-slate-300);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-blue-100);
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.usernameLink {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-slate-900);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.usernameLink:hover {
+  color: var(--color-blue-600);
+  text-decoration: underline;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.typeBadge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-slate-600);
+  /* background-color: var(--color-slate-100); */
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: capitalize;
+}
+
+.adminBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1e40af;
+  background-color: #dbeafe;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.githubLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-slate-600);
+  text-decoration: none;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-slate-300);
+  border-radius: 0.5rem;
+  text-align: center;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+.githubLink:hover {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+}
+
+.viewProfileButton {
+  flex: 1;
+  display: block;
+  padding: 0.625rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-indigo-600);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.viewProfileButton:hover {
+  background-color: var(--color-indigo-700);
+}
+
+.viewProfileButton:active {
+  transform: scale(0.98);
+}
