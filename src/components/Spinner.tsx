@@ -1,8 +1,8 @@
 import styles from './Spinner.module.css';
 
 interface Props {
-  size: string;
-  message: string;
+  size?: string;
+  message?: string;
 }
 
 const Spinner = ({

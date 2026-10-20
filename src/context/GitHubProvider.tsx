@@ -14,6 +14,8 @@ interface ContextType {
   user: Partial<GitHubUser>;
   repos: GitHubRepository[];
   loading: boolean;
+  error: string | null;
+  lastQuery: string;
   searchUsers: (text: string) => Promise<void>;
   getUser: (username: string) => Promise<void>;
   getUserRepos: (username: string) => Promise<void>;
@@ -47,7 +49,10 @@ export const GitHubProvider = ({ children }: Props) => {
       const response = await axios.get<GitHubSearchResponse>(
         `${BASE_URL}/search/users?q=${text}`,
       );
-      dispatch({ type: 'SEARCH_USERS', payload: response.data.items });
+      dispatch({
+        type: 'SEARCH_USERS',
+        payload: { items: response.data.items, query: text },
+      });
     } catch (error: unknown) {
       let message = 'Failed to search users';
 
@@ -117,6 +122,8 @@ export const GitHubProvider = ({ children }: Props) => {
         user: state.user,
         repos: state.repos,
         loading: state.loading,
+        error: state.error,
+        lastQuery: state.lastQuery,
         searchUsers,
         clearUsers,
         getUser,

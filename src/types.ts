@@ -182,12 +182,13 @@ export interface GitHubState {
   users: GitHubUser[];
   user: Partial<GitHubUser>;
   repos: GitHubRepository[];
+  lastQuery: string;
   loading: boolean;
   error: string | null;
 }
 
 export type GitHubAction =
-  | { type: 'SEARCH_USERS'; payload: GitHubUser[] }
+  | { type: 'SEARCH_USERS'; payload: { items: GitHubUser[]; query: string } }
   | { type: 'GET_USER'; payload: GitHubUser }
   | { type: 'CLEAR_USERS' }
   | { type: 'GET_REPOS'; payload: GitHubRepository[] }

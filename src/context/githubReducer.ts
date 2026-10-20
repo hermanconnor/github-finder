@@ -6,6 +6,7 @@ export const initialState: GitHubState = {
   repos: [],
   loading: false,
   error: null,
+  lastQuery: '',
 };
 
 export const githubReducer = (
@@ -14,11 +15,23 @@ export const githubReducer = (
 ): GitHubState => {
   switch (action.type) {
     case 'SEARCH_USERS':
-      return { ...state, users: action.payload, loading: false, error: null };
+      return {
+        ...state,
+        users: action.payload.items,
+        lastQuery: action.payload.query,
+        loading: false,
+        error: null,
+      };
     case 'GET_USER':
       return { ...state, user: action.payload, loading: false, error: null };
     case 'CLEAR_USERS':
-      return { ...state, users: [], loading: false, error: null };
+      return {
+        ...state,
+        users: [],
+        lastQuery: '',
+        loading: false,
+        error: null,
+      };
     case 'GET_REPOS':
       return { ...state, repos: action.payload, loading: false, error: null };
     case 'SET_LOADING':
