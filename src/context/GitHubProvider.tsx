@@ -11,7 +11,7 @@ import type {
 
 interface ContextType {
   users: GitHubUser[];
-  user: Partial<GitHubUser>;
+  user: GitHubUserProfile;
   repos: GitHubRepository[];
   loading: boolean;
   error: string | null;

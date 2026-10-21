@@ -1,0 +1,91 @@
+.notFoundContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundCard {
+  background-color: #ffffff;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.875rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.03),
+    0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  width: 100%;
+}
+
+.iconWrapper {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.statusCode {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-indigo-700);
+  background-color: var(--color-indigo-50);
+  border: 1px solid var(--color-indigo-100);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-slate-600);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actionContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.homeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-indigo-600);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.homeButton:hover {
+  background-color: var(--color-indigo-700);
+}
+
+.homeButton:active {
+  transform: scale(0.98);
+}
+
+.homeButton:focus-visible {
+  outline: 2px solid var(--color-indigo-500);
+  outline-offset: 2px;
+}

@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
+import { Toaster } from 'sonner';
+import { GitHubProvider } from './context/GitHubProvider';
 import Layout from '@/Layout';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
-import { GitHubProvider } from './context/GitHubProvider';
-import { Toaster } from 'sonner';
+import NotFound from '@/pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
