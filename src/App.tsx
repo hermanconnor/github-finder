@@ -4,6 +4,7 @@ import { GitHubProvider } from './context/GitHubProvider';
 import Layout from '@/Layout';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
+import UserPage from '@/pages/UserPage';
 import NotFound from '@/pages/NotFound';
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/user/:username',
+        element: <UserPage />,
       },
       {
         path: '*',
