@@ -4,6 +4,7 @@ import { useGithub } from '@/context/GitHubProvider';
 import Spinner from './Spinner';
 import ErrorMessage from './ErrorMessage';
 import styles from './UserDetails.module.css';
+import RepoList from './repos/RepoList';
 
 const UserDetails = () => {
   const { username } = useParams<{ username: string }>();
@@ -114,45 +115,7 @@ const UserDetails = () => {
         </section>
       </div>
 
-      {repos && repos.length > 0 && (
-        <section className={styles.sectionContainer}>
-          <h2 className={styles.sectionTitle}>Latest Repositories</h2>
-          <div className={styles.repoGrid}>
-            {repos.map((repo) => (
-              <div key={repo.id} className={styles.repoCard}>
-                <div>
-                  <a
-                    href={repo.html_url}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className={styles.repoName}
-                  >
-                    {repo.name}
-                  </a>
-                  <p className={styles.repoDesc}>
-                    {repo.description || 'No description provided.'}
-                  </p>
-                </div>
-
-                <div className={styles.repoFooter}>
-                  {repo.language ? (
-                    <span className={styles.repoLang}>
-                      <span className={styles.langDot} aria-hidden='true' />
-                      {repo.language}
-                    </span>
-                  ) : (
-                    <span />
-                  )}
-                  <div className={styles.repoStats}>
-                    <span>⭐ {repo.stargazers_count}</span>
-                    <span>🔀 {repo.forks_count}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {repos && repos.length > 0 && <RepoList repos={repos} />}
     </article>
   );
 };
