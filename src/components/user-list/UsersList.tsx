@@ -1,5 +1,5 @@
-import ErrorMessage from './ErrorMessage';
-import Spinner from './Spinner';
+import ErrorMessage from '../error-message/ErrorMessage';
+import Spinner from '../Spinner';
 import { useGithub } from '@/context/GitHubProvider';
 import styles from './UsersList.module.css';
 import UserCard from './UserCard';

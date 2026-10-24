@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router';
 import { useGithub } from '@/context/GitHubProvider';
-import Spinner from './Spinner';
-import ErrorMessage from './ErrorMessage';
+import Spinner from '../Spinner';
+import ErrorMessage from '../error-message/ErrorMessage';
 import styles from './UserDetails.module.css';
-import RepoList from './repos/RepoList';
+import RepoList from '../repos/RepoList';
 
 const UserDetails = () => {
   const { username } = useParams<{ username: string }>();

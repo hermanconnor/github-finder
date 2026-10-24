@@ -1,5 +1,5 @@
-import SearchBar from '@/components/SearchBar';
-import UsersList from '@/components/UsersList';
+import SearchBar from '@/components/search/SearchBar';
+import UsersList from '@/components/user-list/UsersList';
 
 const Home = () => {
   return (
