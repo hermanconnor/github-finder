@@ -36,7 +36,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <GitHubProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
       <Toaster richColors position='top-right' />
     </GitHubProvider>
   );

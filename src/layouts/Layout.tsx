@@ -11,7 +11,13 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      {/* TODO: FOOTER */}
+      <footer className={styles.footer}>
+        <div className={styles.footerContainer}>
+          <p className={styles.footerText}>
+            GitHub Finder &bull; Built with React & React Router
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
