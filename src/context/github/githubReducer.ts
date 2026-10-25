@@ -1,8 +1,8 @@
-import type { GitHubAction, GitHubState } from '@/types';
+import type { GitHubAction, GitHubState } from '@/context/github/github.types';
 
 export const initialState: GitHubState = {
   users: [],
-  user: {},
+  user: null,
   repos: [],
   loading: false,
   error: null,
@@ -39,6 +39,7 @@ export const githubReducer = (
     case 'SET_ERROR':
       return { ...state, loading: false, error: action.payload };
     default:
-      return state;
+      const _exhaustiveCheck: never = action;
+      throw new Error(`Unsupported action type: ${_exhaustiveCheck}`);
   }
 };

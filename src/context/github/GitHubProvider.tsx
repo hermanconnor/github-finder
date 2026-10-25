@@ -7,11 +7,11 @@ import type {
   GitHubRepository,
   GitHubSearchResponse,
   GitHubUserProfile,
-} from '@/types';
+} from '@/context/github/github.types';
 
 interface ContextType {
   users: GitHubUser[];
-  user: GitHubUserProfile;
+  user: GitHubUserProfile | null;
   repos: GitHubRepository[];
   loading: boolean;
   error: string | null;
@@ -23,9 +23,6 @@ interface ContextType {
 }
 
 const GitHubContext = createContext<ContextType | undefined>(undefined);
-
-// const githubClientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
-// const githubClientSecret = import.meta.env.VITE_GITHUB_CLIENT_SECRET;
 
 interface Props {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import ErrorMessage from '../error-message/ErrorMessage';
 import Spinner from '../Spinner';
-import { useGithub } from '@/context/GitHubProvider';
+import { useGithub } from '@/context/github/GitHubProvider';
 import styles from './UsersList.module.css';
 import UserCard from './UserCard';
 

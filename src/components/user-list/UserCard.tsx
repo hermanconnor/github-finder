@@ -1,4 +1,4 @@
-import type { GitHubUser } from '@/types';
+import type { GitHubUser } from '@/context/github/github.types';
 import styles from './UserCard.module.css';
 import { Link } from 'react-router';
 

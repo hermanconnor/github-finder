@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router';
-import { useGithub } from '@/context/GitHubProvider';
+import { useGithub } from '@/context/github/GitHubProvider';
 import Spinner from '../Spinner';
 import ErrorMessage from '../error-message/ErrorMessage';
 import styles from './UserDetails.module.css';

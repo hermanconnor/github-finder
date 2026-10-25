@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Toaster } from 'sonner';
-import { GitHubProvider } from './context/GitHubProvider';
+import { GitHubProvider } from './context/github/GitHubProvider';
 import Layout from '@/layouts/Layout';
 import Home from '@/pages/Home';
 import About from '@/pages/About';

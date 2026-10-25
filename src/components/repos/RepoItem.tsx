@@ -1,4 +1,4 @@
-import type { GitHubRepository } from '@/types';
+import type { GitHubRepository } from '@/context/github/github.types';
 import styles from './RepoItem.module.css';
 
 interface Props {

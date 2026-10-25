@@ -162,7 +162,7 @@ export interface GitHubRepository {
 
 export interface GitHubState {
   users: GitHubUser[];
-  user: GitHubUserProfile;
+  user: GitHubUserProfile | null;
   repos: GitHubRepository[];
   lastQuery: string;
   loading: boolean;
@@ -171,7 +171,7 @@ export interface GitHubState {
 
 export type GitHubAction =
   | { type: 'SEARCH_USERS'; payload: { items: GitHubUser[]; query: string } }
-  | { type: 'GET_USER'; payload: GitHubUser }
+  | { type: 'GET_USER'; payload: GitHubUserProfile }
   | { type: 'CLEAR_USERS' }
   | { type: 'GET_REPOS'; payload: GitHubRepository[] }
   | { type: 'SET_LOADING' }
