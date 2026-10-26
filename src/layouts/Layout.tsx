@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
 import Navbar from '@/components/nav/Navbar';
 import styles from './Layout.module.css';
+import Footer from '@/components/footer/Footer';
 
 const Layout = () => {
   return (
@@ -11,13 +12,7 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerContainer}>
-          <p className={styles.footerText}>
-            GitHub Finder &bull; Built with React & React Router
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
