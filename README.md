@@ -1,35 +1,82 @@
-# React + TypeScript + Vite
+# 🔍 GitHub Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive, and accessible web application built with React and TypeScript to search and explore GitHub user profiles and repositories.
 
-Currently, two official plugins are available:
+![Project Screenshot](./src/assets/images/img-1.webp)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+|                                                       |                                                       |
+| :---------------------------------------------------: | :---------------------------------------------------: |
+| ![Project Screenshot](./src/assets/images/img-2.webp) | ![Project Screenshot](./src/assets/images/img-3.webp) |
+| ![Project Screenshot](./src/assets/images/img-4.webp) | ![Project Screenshot](./src/assets/images/img-5.webp) |
 
-## React Compiler
+## Overview
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+GitHub Finder is a web application that uses the GitHub REST API to search for users and display information about their profiles and repositories.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## 🚀 Features
 
-## Expanding the Oxlint configuration
+- **Instant User Search:** Look up GitHub handles with real-time query preservation and retry capabilities.
+- **Detailed Profiles:** View developer bios, follower counts, company details, location, website links, and hireable badges.
+- **Repository Inspection:** Browse a user's latest public repositories with language indicators, star counts, and fork statistics.
+- **Robust State Management:** Powered by React's Context API and `useReducer` for clean predictable state handling (`loading`, `error`, `lastQuery`, `users`, `repos`).
+- **Resilient Error Handling:** Includes custom `ErrorMessage` components with retry functionality, a 404 `NotFound` page, and a root `ErrorBoundary` with a **dev-only expandable stack trace**.
+- **Accessible (a11y):** Built with semantic HTML (`<article>`, `<section>`, `<form role="search">`), keyboard navigation, and screen-reader utility classes (`srOnly`).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## 🛠️ Tech Stack
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- **Framework:** React with TypeScript
+- **Routing:** React Router v8+ (Data Router configuration)
+- **State Management:** React Context API & `useReducer`
+- **HTTP Client:** Axios
+- **Notifications:** Sonner
+- **Styling:** CSS Modules with CSS Variables
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Make sure you have **Node.js** (v18+ recommended) and **npm** installed on your machine.
+
+### Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/hermanconnor/github-finder.git
+cd github-finder
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+2. **Install dependencies:**
+
+```bash
+npm install
+```
+
+3. **Run the development server:**
+
+```bash
+npm run dev
+```
+
+4. **Open your browser:**
+   Navigate to `http://localhost:5173` (or the port provided in your terminal).
+
+## 🧠 What I Learned
+
+- Integrating a React application with an external REST API.
+- Managing shared state using Context and reducers.
+- Modeling API data and component contracts with TypeScript.
+- Organizing component styles using CSS Modules.
+- Building responsive layouts with custom CSS.
+- Applying semantic HTML and accessibility principles to interactive interfaces.
+
+## Future Improvements
+
+- Improve API request caching and loading performance.
+- Add pagination or sorting for repository results, if appropriate.
+
+## Acknowledgements
+
+This project was inspired by the GitHub Finder project in [React Front To Back](https://www.udemy.com/course/modern-react-front-to-back/), a Udemy course created by Brad Traversy.
+
+The course provided the original learning exercise, with a focus on external API integration and React state management. I developed my own TypeScript implementation and custom styling, with additional attention to responsive design, semantic HTML, and accessibility.
