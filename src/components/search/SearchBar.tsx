@@ -1,6 +1,6 @@
 import { useState, useRef, type ChangeEvent, type SubmitEvent } from 'react';
 import { toast } from 'sonner';
-import { useGithub } from '@/context/github/GitHubProvider';
+import { useGithub } from '@/context/github/GitHubContext';
 import styles from './SearchBar.module.css';
 
 const SearchBar = () => {

@@ -1,28 +1,13 @@
-import { createContext, useContext, useReducer } from 'react';
+import { useReducer } from 'react';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { githubReducer, initialState } from './githubReducer';
 import type {
-  GitHubUser,
   GitHubRepository,
   GitHubSearchResponse,
   GitHubUserProfile,
 } from '@/context/github/github.types';
-
-interface ContextType {
-  users: GitHubUser[];
-  user: GitHubUserProfile | null;
-  repos: GitHubRepository[];
-  loading: boolean;
-  error: string | null;
-  lastQuery: string;
-  searchUsers: (text: string) => Promise<void>;
-  getUser: (username: string) => Promise<void>;
-  getUserRepos: (username: string) => Promise<void>;
-  clearUsers: () => void;
-}
-
-const GitHubContext = createContext<ContextType | undefined>(undefined);
+import { GitHubContext } from './GitHubContext';
 
 interface Props {
   children: React.ReactNode;
@@ -130,14 +115,4 @@ export const GitHubProvider = ({ children }: Props) => {
       {children}
     </GitHubContext.Provider>
   );
-};
-
-export const useGithub = (): ContextType => {
-  const context = useContext(GitHubContext);
-
-  if (!context) {
-    throw new Error('useGithub must be used within a GithubState Provider');
-  }
-
-  return context;
 };
