@@ -1,11 +1,17 @@
-import ErrorMessage from '../error-message/ErrorMessage';
+import { useEffect } from 'react';
+import UserCard from './UserCard';
 import Spinner from '../Spinner';
+import ErrorMessage from '../error-message/ErrorMessage';
 import { useGithub } from '@/context/github/GitHubContext';
 import styles from './UsersList.module.css';
-import UserCard from './UserCard';
 
 const UsersList = () => {
-  const { loading, users, error, lastQuery, searchUsers } = useGithub();
+  const { loading, users, error, lastQuery, searchUsers, clearError } =
+    useGithub();
+
+  useEffect(() => {
+    clearError();
+  }, []);
 
   if (loading) {
     return (

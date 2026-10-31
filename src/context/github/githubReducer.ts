@@ -38,6 +38,8 @@ export const githubReducer = (
       return { ...state, loading: true, error: null };
     case 'SET_ERROR':
       return { ...state, loading: false, error: action.payload };
+    case 'CLEAR_ERROR':
+      return { ...state, loading: false, error: null };
     default:
       const _exhaustiveCheck: never = action;
       throw new Error(`Unsupported action type: ${_exhaustiveCheck}`);

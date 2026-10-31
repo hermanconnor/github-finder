@@ -22,6 +22,8 @@ export const GitHubProvider = ({ children }: Props) => {
   const setLoading = () => dispatch({ type: 'SET_LOADING' });
   // CLEAR USERS
   const clearUsers = () => dispatch({ type: 'CLEAR_USERS' });
+  // CLEAR ERROR
+  const clearError = () => dispatch({ type: 'CLEAR_ERROR' });
 
   // SEARCH USERS
   const searchUsers = async (text: string) => {
@@ -49,8 +51,8 @@ export const GitHubProvider = ({ children }: Props) => {
     }
   };
 
-  // GET USER
-  const getUser = async (username: string) => {
+  // GET USER (Returns boolean indicating success)
+  const getUser = async (username: string): Promise<boolean> => {
     setLoading();
 
     try {
@@ -59,17 +61,30 @@ export const GitHubProvider = ({ children }: Props) => {
       );
 
       dispatch({ type: 'GET_USER', payload: response.data });
+
+      return true;
     } catch (error: unknown) {
       let message = 'Failed to fetch user';
+      let is404 = false;
 
       if (axios.isAxiosError(error)) {
-        message = error.response?.data?.message || error.message;
+        if (error.response?.status === 404) {
+          message = `User "@${username}" does not exist or could not be found.`;
+        } else {
+          message = error.response?.data?.message || error.message;
+        }
       } else if (error instanceof Error) {
         message = error.message;
       }
 
       dispatch({ type: 'SET_ERROR', payload: message });
-      toast.error(message);
+
+      // Only show toast for unexpected errors (skip toast for 404s since UI handles it inline)
+      if (!is404) {
+        toast.error(message);
+      }
+
+      return false;
     }
   };
 
@@ -84,6 +99,11 @@ export const GitHubProvider = ({ children }: Props) => {
 
       dispatch({ type: 'GET_REPOS', payload: response.data });
     } catch (error: unknown) {
+      // If user wasn't found, getUser already handled the error state
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
+        return;
+      }
+
       let message = 'Failed to fetch repositories';
 
       if (axios.isAxiosError(error)) {
@@ -110,6 +130,7 @@ export const GitHubProvider = ({ children }: Props) => {
         clearUsers,
         getUser,
         getUserRepos,
+        clearError,
       }}
     >
       {children}

@@ -12,8 +12,11 @@ const UserDetails = () => {
 
   const fetchUserData = async () => {
     if (username) {
-      await getUser(username);
-      await getUserRepos(username);
+      const success = await getUser(username);
+
+      if (success) {
+        await getUserRepos(username);
+      }
     }
   };
 
@@ -25,12 +28,19 @@ const UserDetails = () => {
     return <Spinner message={`Loading profile for @${username}...`} />;
   }
 
-  if (error) {
-    return <ErrorMessage message={error} onRetry={fetchUserData} />;
+  if (!user || !user.login) {
+    return (
+      <ErrorMessage
+        title='User Not Found'
+        message={`User "@${username}" could not be found or does not exist.`}
+        onRetry={fetchUserData}
+        showBackLink={true}
+      />
+    );
   }
 
-  if (!user || !user.login) {
-    return null;
+  if (error) {
+    return <ErrorMessage message={error} onRetry={fetchUserData} />;
   }
 
   return (

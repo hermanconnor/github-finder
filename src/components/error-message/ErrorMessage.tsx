@@ -1,13 +1,20 @@
+import { Link } from 'react-router';
 import styles from './ErrorMessage.module.css';
 
 interface Props {
+  title?: string;
   message?: string;
   onRetry?: () => void;
+  showBackLink?: boolean;
+  backTo?: string;
 }
 
 const ErrorMessage = ({
+  title = 'Unable to Load Profiles',
   message = 'An unexpected error occurred while fetching GitHub profiles. You may have exceeded the API rate limit.',
   onRetry,
+  showBackLink = false,
+  backTo = '/',
 }: Props) => {
   return (
     <div className={styles.errorContainer} role='alert'>
@@ -28,14 +35,26 @@ const ErrorMessage = ({
         </svg>
       </div>
 
-      <h3 className={styles.errorTitle}>Unable to Load Profiles</h3>
+      <h3 className={styles.errorTitle}>{title}</h3>
       <p className={styles.errorMessageText}>{message}</p>
 
-      {onRetry && (
-        <button onClick={onRetry} className={styles.retryButton} type='button'>
-          Try Again
-        </button>
-      )}
+      <div className={styles.actionContainer}>
+        {showBackLink && (
+          <Link to={backTo} className={styles.backLink}>
+            <span aria-hidden='true'>&larr;</span> Back to Search
+          </Link>
+        )}
+
+        {onRetry && (
+          <button
+            onClick={onRetry}
+            className={styles.retryButton}
+            type='button'
+          >
+            Try Again
+          </button>
+        )}
+      </div>
     </div>
   );
 };

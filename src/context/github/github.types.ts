@@ -175,4 +175,5 @@ export type GitHubAction =
   | { type: 'CLEAR_USERS' }
   | { type: 'GET_REPOS'; payload: GitHubRepository[] }
   | { type: 'SET_LOADING' }
-  | { type: 'SET_ERROR'; payload: string };
+  | { type: 'SET_ERROR'; payload: string }
+  | { type: 'CLEAR_ERROR' };

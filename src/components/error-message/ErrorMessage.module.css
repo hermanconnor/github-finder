@@ -40,12 +40,49 @@
   line-height: 1.5;
 }
 
+.actionContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  background-color: #ffffff;
+  border: 1px solid var(--color-slate-300);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.backLink:hover {
+  background-color: var(--color-slate-100);
+  border-color: var(--color-slate-400);
+  color: var(--color-slate-900);
+}
+
+.backLink:active {
+  transform: scale(0.98);
+}
+
 .retryButton {
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: var(--color-orange-500);
+  background-color: var(--color-indigo-500);
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -55,7 +92,7 @@
 }
 
 .retryButton:hover {
-  background-color: var(--color-orange-600);
+  background-color: var(--color-indigo-600);
 }
 
 .retryButton:active {

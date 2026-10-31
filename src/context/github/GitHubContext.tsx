@@ -13,9 +13,10 @@ interface ContextType {
   error: string | null;
   lastQuery: string;
   searchUsers: (text: string) => Promise<void>;
-  getUser: (username: string) => Promise<void>;
+  getUser: (username: string) => Promise<boolean>;
   getUserRepos: (username: string) => Promise<void>;
   clearUsers: () => void;
+  clearError: () => void;
 }
 
 export const GitHubContext = createContext<ContextType | undefined>(undefined);
